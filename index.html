@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Jacques, why?</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Stylesheets go here. -->
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">  <link rel="stylesheet" type="text/css" href="css/main.css" />
-</head>
-<body>
-  <!-- Content goes here. -->
-  <!-- Scripts go here. -->
-  <!-- Handlebars scripts. -->
-  <script id="note-template" type="text/x-handlebars-template">
-    <div class="row note">
-      <h5 class="text-center">{{user.username}}</h5>
-      <h6 class="pull-right">Posted on: {{created_at}}</h6>
-      <div class="body break-word vcenter col-xs-9">
-        {{body}}
-      </div>
+  <head>
+    <title>Jacques, why?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Stylesheets go here. -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  </head>
+  <body>
+    <h1 class="text-center" id="headline">Notemeister 5000</h1>
+
+    <div id="note_form" class="col-xs-8 col-xs-offset-2">
+      <h3 class="text-center">Say a thing! or whatever.</h3>
+      <form id="note">
+        <div class="form-group">
+          <textarea name="body" class="form-control" placeholder="Words, words, words."></textarea>
+        </div>
+        <div class="form-group">
+          <input name="tags" class="form-control" placeholder="Add a tag. Separate with commas." />
+        </div>
+        <input type="submit" name="submit" value="Say it!" class="btn btn-primary pull-right" />
+      </form>
     </div>
-  </script>
-  <!-- Sundries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  <script type="text/javascript" src="main.js"></script></body>
-</body>
+
+
+
+    <div class="container-fluid" id="notes">
+
+    </div>
+    <!-- Content goes here. -->
+    <!-- Scripts go here. -->
+    <!-- Handlebars scripts. -->
+    <script id="notes-template" type="text/x-handlebars-template">
+      <div class="row note">
+        <div class="col-xs-8 col-xs-offset-2">
+          <h3 class="text-center">{{title}}</h6>
+          <h5 class="">{{body}}</h5>
+          <div id="tags" class="col">
+            {{#each tags}}
+            <a class="btn btn-xs btn-inline btn-info nopadding" href="#">{{name}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <!-- <script id="tags-template" type="text/x-handlebars-template">
+      <a class: "btn btn-xs btn-inline btn-info nopadding" href="#">{{tag}}</a>
+    </script> -->
+    <!-- Sundries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
 </html>
