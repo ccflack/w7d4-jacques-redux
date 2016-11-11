@@ -14,20 +14,25 @@
   <body>
     <h1 class="text-center" id="headline">Notemeister 5000</h1>
 
-    <div id="note_form" class="col-xs-8 col-xs-offset-2">
-      <h3 class="text-center">Say a thing! or whatever.</h3>
-      <form id="note">
-        <div class="form-group">
-          <textarea name="body" class="form-control" placeholder="Words, words, words."></textarea>
-        </div>
-        <div class="form-group">
-          <input name="tags" class="form-control" placeholder="Add a tag. Separate with commas." />
-        </div>
-        <input type="submit" name="submit" value="Say it!" class="btn btn-primary pull-right" />
-      </form>
+    <div class="container">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h3 class="text-center">Say a thing! or whatever.</h3>
+        <form id="note">
+          <div class="form-group">
+            <input name="title" class="form-control" placeholder="Give your note a title." />
+          </div>
+          <div class="form-group">
+            <textarea name="body" class="form-control" placeholder="Words, words, words."></textarea>
+          </div>
+          <div class="form-group">
+            <input name="tags" class="form-control" placeholder="Add a tag. Separate with commas." />
+          </div>
+          <input id="submit" type="submit" name="submit" value="Say it!" class="btn btn-primary pull-right" />
+        </form>
+      </div>
     </div>
 
-
+    <div id="alerts" class="col-xs-8 col-xs-offset-2"></div>
 
     <div class="container-fluid" id="notes">
 
@@ -42,16 +47,12 @@
           <h5 class="">{{body}}</h5>
           <div id="tags" class="col">
             {{#each tags}}
-            <a class="btn btn-xs btn-inline btn-info nopadding" href="#">{{name}}</a>
+            <button class="tag btn btn-xs btn-inline btn-info nopadding">{{name}}</button>
             {{/each}}
           </div>
         </div>
       </div>
     </script>
-
-    <!-- <script id="tags-template" type="text/x-handlebars-template">
-      <a class: "btn btn-xs btn-inline btn-info nopadding" href="#">{{tag}}</a>
-    </script> -->
     <!-- Sundries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
