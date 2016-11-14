@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">  <link rel="stylesheet" type="text/css" href="css/main.css" />
   </head>
   <body>
+    <!-- Content goes here. -->
+
     <h1 class="text-center" id="headline">Notemeister 5000</h1>
 
     <div class="container">
@@ -32,14 +34,37 @@
       </div>
     </div>
 
+    <div id="modal">
+
+    </div>
+
     <div id="alerts" class="col-xs-8 col-xs-offset-2"></div>
 
     <div class="container-fluid" id="notes">
 
     </div>
-    <!-- Content goes here. -->
     <!-- Scripts go here. -->
     <!-- Handlebars scripts. -->
+
+    <script id="modal-template" type="text/x-handlebars-template">
+      <div class="modal fade" tabindex="-1" role="dialog" id="modal_toggle">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+              <p>{{body}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
     <script id="notes-template" type="text/x-handlebars-template">
       <div class="row note">
         <div class="col-xs-8 col-xs-offset-2">
